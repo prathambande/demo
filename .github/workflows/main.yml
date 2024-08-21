@@ -10,14 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Trigger Azure DevOps Pipeline
-        uses: Azure/pipelines@v1
-        with:
-          azure-devops-project-url: 'https://dev.azure.com/prathambande/Playground'
-          azure-pipeline-name: 'BuildSDK' # name of the Azure pipeline to be triggered
-          azure-devops-token: '${{ secrets.AZURE_DEVOPS_TOKEN }}'
-          azure-pipeline-variables:  '{"BranchName": "${{github.ref_name}}"}'
-
       - name: Check Pipeline Result
         run: |
             echo "$(az pipelines build list --organization https://dev.azure.com/prathambande --project Playground)"
