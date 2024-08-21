@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Trigger Azure DevOps Pipeline
-      - uses: Azure/pipelines@v1
+        uses: Azure/pipelines@v1
         with:
           azure-devops-project-url: 'https://dev.azure.com/prathambande/Playground'
           azure-pipeline-name: 'BuildSDK' # name of the Azure pipeline to be triggered
