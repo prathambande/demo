@@ -3,8 +3,10 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- main
+on:
+  pull_request:
+    branches:
+      - main  # Adjust this to the branch you want to monitor for PRs
 
 pool:
   vmImage: ubuntu-latest
