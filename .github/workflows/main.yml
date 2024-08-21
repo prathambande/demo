@@ -16,14 +16,7 @@ jobs:
           azure-devops-project-url: 'https://dev.azure.com/prathambande/Playground'
           azure-pipeline-name: 'BuildSDK' # name of the Azure pipeline to be triggered
           azure-devops-token: '${{ secrets.AZURE_DEVOPS_TOKEN }}'
-
-      - name: Wait for Pipeline to Complete
-        uses: Azure/pipelines@v1
-        with:
-          azure-devops-project-url: 'https://dev.azure.com/prathambande/Playground'
-          azure-pipeline-name: 'BuildSDK' # Name of the Azure pipeline to be triggered
-          azure-devops-token: '${{ secrets.AZURE_DEVOPS_TOKEN }}'
-          wait-for-pipeline: true # Waits for the pipeline to complete
+          azure-pipeline-variables:  '{"BranchName": "${{github.ref_name}}"}'
 
       - name: Check Pipeline Result
         run: |
