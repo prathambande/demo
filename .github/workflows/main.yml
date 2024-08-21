@@ -27,7 +27,5 @@ jobs:
 
       - name: Check Pipeline Result
         run: |
-          if [[ "$(az pipelines build show --project Playground --id $(steps.trigger-pipeline.outputs.pipeline-id) --query result)" != "succeeded" ]]; then
-            echo "Pipeline failed"
+            echo "$(az pipelines build list --organization https://dev.azure.com/prathambande --project Playground)"
             exit 1
-          fi
