@@ -1,0 +1,18 @@
+name: Trigger Azure DevOps Pipeline
+
+on:
+  pull_request:
+    branches:
+      - main  # Adjust this to the branch you want to monitor for PRs
+
+jobs:
+  trigger-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Azure DevOps Pipeline
+      - uses: Azure/pipelines@v1
+        with:
+          azure-devops-project-url: 'https://dev.azure.com/prathambande/Playground'
+          azure-pipeline-name: 'BuildSDK' # name of the Azure pipeline to be triggered
+          azure-devops-token: '${{ secrets.AZURE_DEVOPS_TOKEN }}'
